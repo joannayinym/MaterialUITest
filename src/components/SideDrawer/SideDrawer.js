@@ -18,7 +18,10 @@ const useStyles = makeStyles(theme => ({
     },
     width: 200,
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    [theme.breakpoints.up("sm")]: {
+      display: "none"
+    }
   },
   list: {
     width: 250,
@@ -57,7 +60,7 @@ const SideDrawer = () => {
   );
 
   return (
-    <div>
+    <div className={classes.sideMenu}>
       <Button onClick={toggleDrawer(true)}>
         <MenuIcon />
       </Button>

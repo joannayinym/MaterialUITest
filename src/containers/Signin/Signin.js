@@ -43,13 +43,13 @@ const Signin = () => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
-  };
+  // const handleClickShowPassword = () => {
+  //   setValues({ ...values, showPassword: !values.showPassword });
+  // };
 
-  const handleMouseDownPassword = event => {
-    event.preventDefault();
-  };
+  // const handleMouseDownPassword = event => {
+  //   event.preventDefault();
+  // };
 
   return (
     <FormGroup className={classes.root}>
@@ -63,18 +63,18 @@ const Signin = () => {
           type={values.showPassword ? "text" : "password"}
           value={values.password}
           onChange={handleChange("password")}
-          endAdornment={
-            <InputAdornment position="end">
-              <IconButton
-                aria-label="toggle password visibility"
-                onClick={handleClickShowPassword}
-                onMouseDown={handleMouseDownPassword}
-                edge="end"
-              >
-                {values.showPassword ? <Visibility /> : <VisibilityOff />}
-              </IconButton>
-            </InputAdornment>
-          }
+          // endAdornment={
+          //   <InputAdornment position="end">
+          //     <IconButton
+          //       aria-label="toggle password visibility"
+          //       onClick={handleClickShowPassword}
+          //       onMouseDown={handleMouseDownPassword}
+          //       edge="end"
+          //     >
+          //       {values.showPassword ? <Visibility /> : <VisibilityOff />}
+          //     </IconButton>
+          //   </InputAdornment>
+          // }
           labelWidth={70}
         />
       </FormControl>

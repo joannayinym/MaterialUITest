@@ -7,12 +7,15 @@ import ProfileMenu from "../ProfileMenu/ProfileMenu";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    "& > a > button": {
-      margin: theme.spacing(1)
-    },
+    display: "none",
+    [theme.breakpoints.up("sm")]: {
+      "& > a > button": {
+        margin: theme.spacing(1)
+      },
 
-    display: "flex",
-    justifyContent: "flex-end"
+      display: "flex",
+      justifyContent: "flex-end"
+    }
   },
   mainMenu: {
     "& > *": {
