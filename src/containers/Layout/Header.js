@@ -11,10 +11,18 @@ const useStyles = makeStyles(theme => ({
   },
   headerStyle: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     alignItems: "center",
     height: 60,
-    backgroundColor: "pink"
+    backgroundColor: "pink",
+    [theme.breakpoints.down("sm")]: {
+      display: "flex",
+      justifyContent: "flex-start"
+    },
+    [theme.breakpoints.up("sm")]: {
+      display: "flex",
+      justifyContent: "flex-end"
+    }
   }
 }));
 

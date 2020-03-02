@@ -8,7 +8,8 @@ import routes from "../../routes";
 
 const useStyles = makeStyles(theme => ({
   home: {
-    height: 800
+    height: 800,
+    marginTop: 40
   },
   footer: {
     fontSize: 26
