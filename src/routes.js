@@ -1,6 +1,7 @@
 import Signin from "./containers/Signin/Signin";
 import Signup from "./containers/Signup/Signup";
 import Home from "./containers/Layout/Home";
+import ChartView from "./containers/Chart/ChartView";
 
 const routes = [
   {
@@ -20,6 +21,12 @@ const routes = [
     exact: true,
     name: "signup",
     component: Signup
+  },
+  {
+    path: "/chart",
+    exact: true,
+    name: "chart",
+    component: ChartView
   }
 ];
 
