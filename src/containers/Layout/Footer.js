@@ -54,7 +54,7 @@ const Footer = () => {
   const classes = useStyles();
   return (
     <div className={classes.footer}>
-      <div className={classes.flex}>Copy Right: Joanna</div>
+      <div className={classes.flex}>Copyright: Joanna</div>
     </div>
   );
 };

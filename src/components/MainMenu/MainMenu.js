@@ -31,6 +31,11 @@ const MainMenu = props => {
           Sign Up
         </Button>
       </Link>
+      <Link to="/chart">
+        <Button variant="outlined" color="primary">
+          Chart
+        </Button>
+      </Link>
       <Link to="/signup">
         <Button variant="outlined" color="primary">
           Log Out
