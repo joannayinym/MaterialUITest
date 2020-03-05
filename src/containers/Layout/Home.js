@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   home: {
-    height: 600
+    // height: 600
   }
 }));
 

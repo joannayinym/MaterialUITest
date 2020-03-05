@@ -10,13 +10,19 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import DrawChart from "./DrawChart";
+import SvgChart from "./SvgChart";
 
 const useStyles = makeStyles(theme => ({
   chartWrapper: {
     display: "flex",
-    flexDeriction: "row",
+    flexDirection: "row",
     [theme.breakpoints.down("sm")]: {
       display: "block"
+    },
+    [theme.breakpoints.up("sm")]: {
+      display: "flex",
+      flexDirection: "row",
+      flexWrap: "wrap"
     }
   },
   root: {
@@ -24,14 +30,24 @@ const useStyles = makeStyles(theme => ({
     marginLeft: "5%",
     marginRight: "5%",
     marginTop: 20,
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("xs")]: {
       width: "80%",
       marginLeft: "10%"
     },
-    [theme.breakpoints.up("lg")]: {
+    [theme.breakpoints.up("sm")]: {
+      width: "40%",
+      marginLeft: "5%",
+      marginRight: "5%"
+    },
+    [theme.breakpoints.up("md")]: {
       width: "30%",
       marginLeft: "3%",
       marginRight: "3%"
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "20%",
+      marginLeft: "2%",
+      marginRight: "2%"
     }
   },
   bullet: {
@@ -54,6 +70,9 @@ const ChartView = props => {
     <div className={classes.chartWrapper}>
       <Card className={classes.root}>
         <DrawChart />
+      </Card>
+      <Card className={classes.root}>
+        <SvgChart />
       </Card>
       <Card className={classes.root}>
         <CardContent>
