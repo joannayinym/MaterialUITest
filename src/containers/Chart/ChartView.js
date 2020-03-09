@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import ChartistGraph from "react-chartist";
 import { makeStyles } from "@material-ui/core/styles";
-import Icon from "@material-ui/core/Icon";
 import Card from "@material-ui/core/Card";
+import jsPDF from "jspdf";
 
 import { dailySalesChart } from "./ChartData";
 import CardActions from "@material-ui/core/CardActions";
@@ -11,6 +11,8 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import DrawChart from "./DrawChart";
 import SvgChart from "./SvgChart";
+import { drawToPdf } from "./drawToPdf";
+import { jsPdfExample } from "./jsPdfExample";
 
 const useStyles = makeStyles(theme => ({
   chartWrapper: {
@@ -60,75 +62,92 @@ const useStyles = makeStyles(theme => ({
   },
   pos: {
     marginBottom: 12
+  },
+  btn: {
+    margin: 35
   }
 }));
 
 const ChartView = props => {
   const classes = useStyles();
+  const saveAsPDFHandler = () => {
+    drawToPdf();
+  };
+
+  const PDFExampleHandler = () => {
+    jsPdfExample();
+  };
 
   return (
-    <div className={classes.chartWrapper}>
-      <Card className={classes.root}>
-        <DrawChart />
-      </Card>
-      <Card className={classes.root}>
-        <SvgChart />
-      </Card>
-      <Card className={classes.root}>
-        <CardContent>
-          <Typography
-            className={classes.title}
-            color="textSecondary"
-            gutterBottom
-          >
-            Word of the Day
-          </Typography>
-          <ChartistGraph
-            className="ct-chart"
-            data={dailySalesChart.data}
-            type="Line"
-            options={dailySalesChart.options}
-            listener={dailySalesChart.animation}
-            showArea="true"
-          ></ChartistGraph>
-          <Typography variant="body2" component="p">
-            well meaning and kindly.
-            <br />
-            {'"a benevolent smile"'}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Card>
-      <Card className={classes.root}>
-        <CardContent>
-          <Typography
-            className={classes.title}
-            color="textSecondary"
-            gutterBottom
-          >
-            Word of the Day
-          </Typography>
-          <ChartistGraph
-            className="ct-chart"
-            data={dailySalesChart.data}
-            type="Bar"
-            options={dailySalesChart.options}
-            listener={dailySalesChart.animation}
-            showArea="true"
-          ></ChartistGraph>
-          <Typography variant="body2" component="p">
-            well meaning and kindly.
-            <br />
-            {'"a benevolent smile"'}
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
-      </Card>
-    </div>
+    <>
+      <div className={classes.chartWrapper}>
+        <Card className={classes.root}>
+          <DrawChart />
+        </Card>
+        <Card className={classes.root}>
+          <SvgChart />
+        </Card>
+        <Card className={classes.root}>
+          <CardContent>
+            <Typography
+              className={classes.title}
+              color="textSecondary"
+              gutterBottom
+            >
+              Word of the Day
+            </Typography>
+            <ChartistGraph
+              className="ct-chart"
+              data={dailySalesChart.data}
+              type="Line"
+              options={dailySalesChart.options}
+              listener={dailySalesChart.animation}
+              showArea="true"
+            ></ChartistGraph>
+            <Typography variant="body2" component="p">
+              well meaning and kindly.
+              <br />
+              {'"a benevolent smile"'}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">Learn More</Button>
+          </CardActions>
+        </Card>
+        <Card className={classes.root}>
+          <CardContent>
+            <Typography
+              className={classes.title}
+              color="textSecondary"
+              gutterBottom
+            >
+              Word of the Day
+            </Typography>
+            <ChartistGraph
+              className="ct-chart"
+              data={dailySalesChart.data}
+              type="Bar"
+              options={dailySalesChart.options}
+              listener={dailySalesChart.animation}
+              showArea="true"
+            ></ChartistGraph>
+            <Typography variant="body2" component="p">
+              well meaning and kindly.
+              <br />
+              {'"a benevolent smile"'}
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">Learn More</Button>
+          </CardActions>
+        </Card>
+      </div>
+      <div className={classes.btn}>
+        <Button variant="contained" color="primary" onClick={saveAsPDFHandler}>
+          Save as PDF
+        </Button>
+      </div>
+    </>
   );
 };
 
