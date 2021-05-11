@@ -15,7 +15,7 @@
     "clsx": "^1.1.0",
     "css-mediaquery": "^0.1.2",
     "formik": "^1.5.8",
-    "lodash": "4.17.14",
+    "lodash": "4.17.21",
     "moment": "2.24.0",
     "query-string": "6.8.1",
     "react": "^16.12.0",
